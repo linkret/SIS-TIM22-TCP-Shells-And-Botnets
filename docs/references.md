@@ -10,3 +10,4 @@
 8. R. Perdisci, W. Lee i N. Feamster, “Behavioral Clustering of HTTP-Based Malware,” NDSS Symposium, San Diego, CA, USA, 2010.
 9. E. Alomari, S. Manickam i B. Gupta, “Botnet Technology: A Persistent Threat to Digital Infrastructure,” Preprints, 2024.
 10. Wikipedia, “Botnet,” 2025. \[Online]. Dostupno: https://en.wikipedia.org/wiki/Botnet
+11. CrowdStrike, Bart Lenaerts-Bergmans: "Command and Control (C&C) Attacks Explained", 19.7.2023.
