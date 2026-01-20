@@ -76,7 +76,7 @@ Kako C2 napadi funkioniraju?
 ### 2.2.3 Metode infekcije i širenja
 
 * iskorištavanje poznatih ranjivosti
-* Social Engeneering i phishing
+* Social Engineering i phishing
 * zlonamjerni emailovi
 * kompromitirane web stranice
 
