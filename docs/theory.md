@@ -16,32 +16,23 @@ TCP ljuska omogućuje udaljeno izvođenje naredbi putem TCP mrežne veze. Postoj
 
 Reverse TCP ljuske su češće korištene jer lakše prolaze kroz vatrozide i NAT uređaje.
 
-**Edukativna svrha:**  
+**Svrha u projektu:**  
 Analiza TCP ljuski omogućuje razumijevanje načina na koji napadači ostvaruju udaljeni pristup sustavima te kako se takva komunikacija može detektirati i spriječiti.
 
 **Konceptualni primjer reverse TCP ljuske:**
 
 Ciljni sustav → uspostavlja TCP vezu → Napadački sustav
 Naredbe se razmjenjuju unutar aktivne TCP sesije
+
 ### 2.1.1 Definicija i princip rada
 
 TCP ljuska je mehanizam koji omogućuje udaljeni pristup naredbenoj ljusci operacijskog sustava putem TCP mrežne veze. Nakon uspostave veze, jedna strana (najčešće napadač) može slati naredbe, dok druga strana (ciljni sustav) te naredbe izvršava i vraća izlazne rezultate.
 
 Princip rada TCP ljuske temelji se na standardnoj TCP komunikaciji, što znači da se promet često ne razlikuje značajno od legitimnog mrežnog prometa. Upravo zbog toga TCP ljuske mogu biti teško uočljive bez detaljne analize mrežnog prometa.
 
-U edukativnom kontekstu TCP ljuske se koriste kako bi se razumjelo na koji način napadači ostvaruju udaljeni pristup sustavima te kako takav pristup izgleda na mrežnoj razini.
+U kontekstu projekta, TCP ljuske se koriste kako bi se razumjelo na koji način napadači ostvaruju udaljeni pristup sustavima te kako takav pristup izgleda na mrežnoj razini.
 
-### 2.1.2 Vrste TCP ljuski
-
-Postoje dvije osnovne vrste TCP ljuski koje se razlikuju prema načinu uspostave mrežne veze:
-
-bind TCP ljuske
-
-reverse TCP ljuske
-
-Obje vrste omogućuju isti krajnji cilj – udaljeni pristup sustavu – ali koriste različite mrežne mehanizme.
-
-### 2.1.3 Bind shell vs Reverse shell
+### 2.1.2 Bind shell vs Reverse shell
 
 Kod bind TCP ljuske ciljni sustav otvara određeni TCP port i sluša dolazne veze. Napadač se zatim spaja na taj port kako bi dobio pristup ljusci. Nedostatak ovog pristupa je što otvoreni port može biti blokiran vatrozidom ili lako uočen mrežnim skeniranjem.
 
@@ -115,11 +106,39 @@ Razvoj i analiza TCP ljuski, botneta i DDoS napada zahtijevaju korištenje speci
 ### 2.4.1 Metasploit Framework
 
 Metasploit Framework je jedan od najpoznatijih i najčešće korištenih alata za penetracijsko testiranje. Riječ je o okviru (eng. framework) otvorenog koda koji omogućuje simulaciju stvarnih napada u kontroliranom okruženju. Metasploit se sastoji od velikog broja modula koji pokrivaju različite faze napada, uključujući izviđanje, iskorištavanje ranjivosti i post-eksploataciju.
+
 U kontekstu TCP ljuski, Metasploit omogućuje generiranje i korištenje različitih payloadova koji uspostavljaju TCP vezu između napadačkog i ciljanog sustava. Također se može koristiti za simulaciju jednostavnih botnet scenarija, gdje kompromitirani sustavi komuniciraju s centralnim kontrolnim sustavom.
 
+Glavne prednosti učenja Metasploit-a odnose se na:
+* učenje faza kibernetičkih napada
+* način ostvarivanja udaljenog pristupa sustavu
+* ponašanje kompromitiranog sustava nakon i za vrijeme napada
+
 ### 2.4.2 Netcat
+
+Netcat je lagan i jednostavan mrežni alat koji omogućuje čitanje i pisanje podataka putem TCP i UDP protokola. Zbog svoje jednostavnosti često se naziva „švicarskim nožem“ mrežnih alata. Netcat se ne koristi isključivo za napade, već i za testiranje mrežnih veza, debugiranje servisa i edukaciju.
+U kontekstu TCP ljuski, Netcat se često koristi za demonstraciju osnovnog principa udaljene ljuske jer omogućuje izravnu komunikaciju između dva sustava bez složene konfiguracije.
+
+Poznavanje rada u Netcatu korisnicima omogućuje:
+* jasno prikazivanje komunikaciju između klijenta i poslužitelja
+* korištenje standardnog TCP protokola
+* jasno i lagano razumijevanje toka podataka
+
 ### 2.4.3 Wireshark
+
+Wireshark je alat za snimanje i analizu mrežnog prometa koji omogućuje detaljan uvid u strukturu mrežnih paketa. Podržava veliki broj protokola i pruža grafičko sučelje koje olakšava analizu čak i složenih mrežnih komunikacija.
+
+Wireshark je glavni alat za razumijevanje kako napadi funkcioniraju na mreži, tj. kako na mrežnoj razini komuniciranje klijenata i poslužitelja kroz pakete može otkriti napade i potencijalne probleme na mreži.
+
+Glavne funkcionalnosti Wireshara u kontekstu izrađenog projekta odnose se na:
+* snimanje TCP prometa generaranog TCP ljuskama
+* analizu komunikacije između botova i C2 poslužitelja
+* prepoznavanje sumnjivih obrazaca prometa
 
 # 3. Zaključak
 
-# 4. Literatura
+TCP ljuske, botneti i distribuirani napadi uskraćivanja usluge predstavljaju jedne od najznačajnijih prijetnji suvremenim računalnim mrežama. Njihova raširenost i kontinuirani razvoj ukazuju na potrebu dubljeg razumijevanja ne samo načina na koji se ovi mehanizmi koriste u zlonamjerne svrhe, već i kako ih je moguće detektirati, analizirati i spriječiti. Kroz teorijski i praktični pristup obrađen u ovom projektu, prikazan je cjelovit pregled osnovnih koncepata, tehnologija i alata povezanih s TCP ljuskama i botnetima.
+
+Analiza TCP ljuski pokazala je kako se relativno jednostavnim mrežnim mehanizmima može ostvariti udaljeni pristup kompromitiranom sustavu. Poseban naglasak stavljen je na razliku između bind i reverse TCP ljuski, pri čemu je istaknuto da reverse ljuske predstavljaju ozbiljniju prijetnju zbog lakšeg prolaska kroz vatrozide i mrežne filtre. Razumijevanje ovih razlika ključno je za razvoj učinkovitih obrambenih strategija i pravilno konfiguriranje mrežne sigurnosti.
+
+Korištenje alata poput Dockera, Metasploit Frameworka, Netcata, Wiresharka, Nmapa i Pythona omogućilo je sigurnu i kontroliranu demonstraciju navedenih prijetnji. Docker se pokazao kao iznimno korisna tehnologija za izgradnju izoliranog testnog okruženja, čime se eliminira rizik za stvarne mreže i sustave. Metasploit je omogućio simulaciju stvarnih napadačkih scenarija, dok su Netcat i Python pružili uvid u osnovne principe TCP komunikacije i implementacije udaljenih ljuski.
