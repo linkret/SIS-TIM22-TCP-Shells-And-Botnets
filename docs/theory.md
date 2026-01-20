@@ -19,11 +19,6 @@ Reverse TCP ljuske su češće korištene jer lakše prolaze kroz vatrozide i NA
 **Svrha u projektu:**  
 Analiza TCP ljuski omogućuje razumijevanje načina na koji napadači ostvaruju udaljeni pristup sustavima te kako se takva komunikacija može detektirati i spriječiti.
 
-**Konceptualni primjer reverse TCP ljuske:**
-
-Ciljni sustav → uspostavlja TCP vezu → Napadački sustav
-Naredbe se razmjenjuju unutar aktivne TCP sesije
-
 ### 2.1.1 Definicija i princip rada
 
 TCP ljuska je mehanizam koji omogućuje udaljeni pristup naredbenoj ljusci operacijskog sustava putem TCP mrežne veze. Nakon uspostave veze, jedna strana (najčešće napadač) može slati naredbe, dok druga strana (ciljni sustav) te naredbe izvršava i vraća izlazne rezultate.
