@@ -11,8 +11,8 @@ Cilj ovog rada je teorijski objasniti principe rada TCP ljuski, botneta i DDoS n
 ## 2.1 TCP ljuske (TCP Shells)
 TCP ljuska omogućuje udaljeno izvođenje naredbi putem TCP mrežne veze. Postoje dvije osnovne vrste TCP ljuski:
 
-- **Bind shell** – ciljni sustav sluša dolazne veze
-- **Reverse shell** – ciljni sustav inicira vezu prema napadaču
+* **Bind shell** – ciljni sustav sluša dolazne veze
+* **Reverse shell** – ciljni sustav inicira vezu prema napadaču
 
 Reverse TCP ljuske su češće korištene jer lakše prolaze kroz vatrozide i NAT uređaje.
 
@@ -53,9 +53,9 @@ Botnet je mreža računala (zajedničkim imenom botova) kojima najčešće uprav
 
 **Osnovne komponente botneta:**
 
-    - Bot (zaraženo računalo kontrolirano od poslužitelja)
-    - C2 (Command and Control) poslužitelj
-    - Komunikacijski kanal
+* Bot (zaraženo računalo kontrolirano od poslužitelja)
+* C2 (Command and Control) poslužitelj
+* Komunikacijski kanal
 
 Važnost botneta najviše se ističe kod proučavanja velikih mreža te napada na takve velike mreže, provjeravanje i kontrolu internetskog prometa između računala te pronalaženje metoda obrane protiv DDoS i sličnih napada na mrežu.
 
@@ -65,11 +65,11 @@ Botnet predstavlja mrežu kompromitiranih računala ili uređaja koji su pod kon
 
 Arhitektura botneta obično se sastoji od:
 
-    - botova koji izvršavaju naredbe
+* botova koji izvršavaju naredbe
 
-    - sustava za zapovijedanje i kontrolu (C2)
+* sustava za zapovijedanje i kontrolu (C2)
 
-    - komunikacijskog kanala između botova i C2 poslužitelja
+* komunikacijskog kanala između botova i C2 poslužitelja
 
 U jednostavnijim botnetima C2 poslužitelj je centraliziran, dok moderniji botneti mogu koristiti distribuirane ili peer-to-peer arhitekture kako bi se otežala detekcija i gašenje.
 
@@ -81,18 +81,18 @@ Najčešće se koristi TCP protokol zbog pouzdanosti, ali se komunikacija često
 
 Kako C2 napadi funkioniraju?
 
-1. Point of Entry (mjesto ulaza u sustav) - napadač šalje napad kako bi probio ciljanu mrežu unosom malware-a. To su najčešće phishing mailovi, popratna preuzimanja s web stranica, neovlašten ulaz u sustav s kompromitiranim korisničkim podacima, eksploatacija ranjivosti sustava itd.
-2. Uspostavljanje C2 povezanosti - nakon što se dođe do pristupa sustavu, napdadač koristi C2 kanale kako bi kontrolirao i upravljao unesenim botovima na mreži
-3. Lateralna kretnja kroz mrežu - nakon što se dobije pristup mreži, napadač kompromitira sve više računala kako bi dobio sve više korisničkih podataka za pristup većim ovlastima te na taj način sam sebi omogućio veći pristup i veće ovlasti u sustavu kako bi bio u većoj kontroli nad mrežom i računalima na njoj
-4. Otkrivanje podataka - napadač dolazi do otkrića lokacije servera i sustava koji u sebi sadrže podatke koji su napadaču korisni.
-5. Eksfiltracija podataka - nakon dolazaka do podataka, napadač podatke šalje na internalni server gdje se ti podaci kompresiraju i najčešće enkriptiraju te se šalju na vanjsku lokaciju
+1. **Point of Entry(mjesto ulaza u sustav)** - napadač šalje napad kako bi probio ciljanu mrežu unosom malware-a. To su najčešće phishing mailovi, popratna preuzimanja s web stranica, neovlašten ulaz u sustav s kompromitiranim korisničkim podacima, eksploatacija ranjivosti sustava itd.
+2. **Uspostavljanje C2 povezanosti** - nakon što se dođe do pristupa sustavu, napdadač koristi C2 kanale kako bi kontrolirao i upravljao unesenim botovima na mreži
+3. **Lateralna kretnja kroz mrežu** - nakon što se dobije pristup mreži, napadač kompromitira sve više računala kako bi dobio sve više korisničkih podataka za pristup većim ovlastima te na taj način sam sebi omogućio veći pristup i veće ovlasti u sustavu kako bi bio u većoj kontroli nad mrežom i računalima na njoj
+4. **Otkrivanje podataka** - napadač dolazi do otkrića lokacije servera i sustava koji u sebi sadrže podatke koji su napadaču korisni.
+5. **Eksfiltracija podataka** - nakon dolazaka do podataka, napadač podatke šalje na internalni server gdje se ti podaci kompresiraju i najčešće enkriptiraju te se šalju na vanjsku lokaciju
 
 ### 2.2.3 Metode infekcije i širenja
 
-    - iskorištavanje poznatih ranjivosti
-    - Social Engeneering i phishing
-    - zlonamjerni emailovi
-    - kompromitirane web stranice
+* iskorištavanje poznatih ranjivosti
+* Social Engeneering i phishing
+* zlonamjerni emailovi
+* kompromitirane web stranice
 
 ## 2.3 DDoS napadi
 ### 2.3.1 Definicija i tipovi DDoS napada
