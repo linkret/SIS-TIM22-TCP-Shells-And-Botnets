@@ -1,6 +1,6 @@
 # Plan
 
-## 1. Planirani koraci u praktičnom dijelu
+## Planirani koraci u praktičnom dijelu
 
 **Korak 1: Postavljanje laboratorijskog okruženja**
 
@@ -20,10 +20,10 @@
 
 **Korak 9: Izrada dokumentacija i završno izvješće**
 
-## 2. Planirani alati (kratko)
+## Planirani alati
 
-- **Docker**: orkestracija izoliranih komponenti i mreže.
-- **Metasploit Framework**: automatizirana eksploatacija ranjivosti i post-eksploatacija.
+- **Docker**: izoliranih komponenti i mreže.
+- **Metasploit Framework**: automatizirana eksploatacija ranjivosti.
 - **Nmap**: identifikacija portova, servisa i verzija.
 - **Flask (Python)**: jednostavan C2 HTTP API.
 - **curl**: dohvat naredbi/payload-a i generiranje HTTP prometa.
